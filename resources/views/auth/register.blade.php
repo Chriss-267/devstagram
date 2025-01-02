@@ -11,53 +11,66 @@
             class="">
         </div>
         <div class="md:w-6/12 bg-white p-6 rounded-lg shadow-xl">
-            <form action="{{route("register")}}" method="POST">
+            <form action="{{route("register")}}" method="POST" novalidate>
                 @csrf
 
-                @error("name")
-                    <p>{{$message}}</p>
-                @enderror
                 <div class="mb-5">
                     <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
                         Nombre
                     </label>
+                    
+                    @error("name")
+                    <p class="text-red-500">{{$message}}</p>
+                    @enderror
                     <input
                     id="name"
                     name="name"
                     placeholder="Tu Nombre"
                     type="text" class="border p-3 w-full rounded-lg @error("name") border-2 border-red-500 @enderror"
-                    value="">
+                    value="{{old("name")}}">
                 </div>
                 
                 <div class="mb-5">
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">
                         Username
                     </label>
+                    @error("username")
+                    <p class="text-red-500">{{$message}}</p>
+                    @enderror
                     <input
                     id="username"
                     name="username"
                     placeholder="Tu Nombre de Usuario"
-                    type="text" class="border p-3 w-full rounded-lg ">
+                    type="text" class="border p-3 w-full rounded-lg @error("username") border-2 border-red-500 @enderror"
+                    value="{{old("username")}}">
                 </div>
                 <div class="mb-5">
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">
                         Email
                     </label>
+                    @error("email")
+                    <p class="text-red-500">{{$message}}</p>
+                    @enderror
                     <input
                     id="email"
                     name="email"
                     placeholder="Tu Email"
-                    type="text" class="border p-3 w-full rounded-lg ">
+                    type="text" class="border p-3 w-full rounded-lg @error("email") border-2 border-red-500 @enderror"
+                    value="{{old("email")}}">
                 </div>
                 <div class="mb-5">
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">
                         Password
                     </label>
+                    @error("password")
+                    <p class="text-red-500">{{$message}}</p>
+                    @enderror
                     <input
                     id="password"
                     name="password"
                     placeholder="Tu Contraseña"
-                    type="password" class="border p-3 w-full rounded-lg ">
+                    type="password" class="border p-3 w-full rounded-lg @error("password") border-2 border-red-500 @enderror"
+                    >
                 </div>
                 <div class="mb-5">
                     <label for="password_confirmation" class="mb-2 block uppercase text-gray-500 font-bold">

@@ -5,5 +5,8 @@
 @endsection
 
 @section("contenido")
-    <p>Hola</p>
+
+    <x-listar-post :posts="$posts" />
+
+    
 @endsection
